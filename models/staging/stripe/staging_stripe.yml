@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: stage_payments
+    description: Staged payments from Stripe.
+    columns: 
+    - name: payment_id
+      description: Primary key on payments.
+      tests:
+        - unique
+        - not_null
+    - name: order_id
+      tests:
+        - not_null
+    - name: status
+      description: Status of the payment transaction.
+      tests:
+      - accepted_values:
+          values: ['success','fail']
+    - name: payment_method
+      tests:
+      tests:
+      - accepted_values:
+          values: ['bank_transfer','credit_card','gift_card','coupon']
