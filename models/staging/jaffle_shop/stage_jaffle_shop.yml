@@ -26,7 +26,6 @@ models:
         - relationships:
             to: ref('stage_customers')
             field: customer_id
-        - unique
         - not_null
 
     
